@@ -2,12 +2,19 @@ package com.psauer.rest.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
+@Document
 @JsonInclude(Include.NON_NULL)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
   @Id
@@ -15,7 +22,6 @@ public class User {
 
   private String username;
 
-  @JsonProperty("eMailAddress")
   private String eMailAddress;
 
 }
